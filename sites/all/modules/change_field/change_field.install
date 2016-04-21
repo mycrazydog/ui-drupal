@@ -1,0 +1,88 @@
+<?php
+/**
+ * Convert text field to textarea field.
+ */
+ 
+ /*function change_field_update_7001() {*/
+ 
+ 
+ /*
+ In table field_config change data field and note this ....
+ Changing its value is as easy as replacing the s:2:"10" part by s:2:"25". Be careful: if your new value is longer you have to adapt the "s" part, for example putting 100 will be s:3:"100" as 100 length is 3.
+ 
+ 
+ */
+ 
+function change_field_install() { 
+
+ 
+  db_update('field_config')
+    ->fields(array('type' => 'text_long'))
+    ->condition('field_name', 'field_specialintro')
+    ->execute();
+
+// From text.install for long text fields
+  $textarea_spec = array(
+    'type' => 'text',
+    'size' => 'big',
+    'not null' => FALSE,
+  );
+  db_change_field('field_data_field_specialintro', 'field_specialintro_value', 'field_specialintro_value', $textarea_spec);
+  db_change_field('field_revision_field_specialintro', 'field_specialintro_value', 'field_specialintro_value', $textarea_spec);
+  field_cache_clear(TRUE);
+  
+  watchdog('error field_specialintro', 'competed');
+  
+  
+  
+  /**********************************************************************************************/
+  
+  
+  
+    db_update('field_config')
+      ->fields(array('type' => 'text_long'))
+      ->condition('field_name', 'field_description')
+      ->execute();
+  
+  // From text.install for long text fields
+    $textarea_spec = array(
+      'type' => 'text',
+      'size' => 'big',
+      'not null' => FALSE,
+    );
+    db_change_field('field_data_field_description', 'field_description_value', 'field_description_value', $textarea_spec);
+    db_change_field('field_revision_field_description', 'field_description_value', 'field_description_value', $textarea_spec);
+    field_cache_clear(TRUE);
+    
+    watchdog('error field_description', 'competed');
+    
+    
+    
+    /**********************************************************************************************/
+    
+    
+    
+      db_update('field_config')
+        ->fields(array('type' => 'text_long'))
+        ->condition('field_name', 'field_newsletter_blurb')
+        ->execute();
+    
+    // From text.install for long text fields
+      $textarea_spec = array(
+        'type' => 'text',
+        'size' => 'big',
+        'not null' => FALSE,
+      );
+      db_change_field('field_data_field_newsletter_blurb', 'field_newsletter_blurb_value', 'field_newsletter_blurb_value', $textarea_spec);
+      db_change_field('field_revision_field_newsletter_blurb', 'field_newsletter_blurb_value', 'field_newsletter_blurb_value', $textarea_spec);
+      field_cache_clear(TRUE);
+      
+      watchdog('error field_newsletter_blurb', 'competed');
+    
+    
+
+    
+      
+  
+}
+

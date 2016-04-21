@@ -1,0 +1,9 @@
+name = Domain Analytics
+description = Provides per domain Google Analytics settings for Domain Access
+core = 7.x
+package = Domain Access
+dependencies[] = domain
+dependencies[] = googleanalytics
+files[] = domain_analytics.module
+version = 7.x-1.0
+

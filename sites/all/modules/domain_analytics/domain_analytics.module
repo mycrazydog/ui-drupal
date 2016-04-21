@@ -1,0 +1,47 @@
+<?php
+
+/**
+ * @file
+ * Provides per domain Google Analytics settings for Domain Access
+*/
+
+/**
+* Implement hook_domainbatch().
+*
+* Add Google Analytics to Domain Conf.
+*/
+function domain_analytics_domainbatch() {
+
+  $batch = array();
+  if (module_exists('googleanalytics')) {
+    $batch['googleanalytics_account'] = array(
+      '#form' => array(
+        '#title' => t('Google Analytics'),
+        '#type' => 'textfield',
+        '#size' => 20,
+        '#maxlength' => 20,
+        '#description' => t('Google Analytics account key, in the format UA-XXXXXX'),
+      ),
+      '#domain_action' => 'domain_conf',
+      '#system_default' => variable_get('googleanalytics_account', ''),
+      '#meta_description' => t('Set Google Analytics keys for each domain.'),
+      '#variable' => 'googleanalytics_account',
+      '#data_type' => 'string',
+      '#weight' => -1,
+      '#group' => t('Google Analytics'),
+      '#update_all' => TRUE,
+      '#module' => t('Domain Analytics'),
+    );
+  }
+
+  return $batch;
+}
+
+/**
+* Implement hook_domainwarnings().
+*
+* Warn users about the Google Analytics form.
+*/
+function domain_analytics_domainwarnings() {
+  return array('googleanalytics_admin_settings_form');
+}

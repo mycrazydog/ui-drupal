@@ -1,0 +1,132 @@
+/**************************
+ **************************
+ *
+ * VERY IMPORTANT
+ *
+ **************************
+**************************/
+
+I modified views_bootstrap module to allow for left or right image alignment. Do not update module you might over-write my changes
+
+I hacked the base bootstrap theme to get the latest version of bootstrap.js
+
+/**************************
+ *
+ * Server needs
+ *
+**************************/
+
+-ssh
+-proper permissions www/html www-data:www-data
+-git
+-drush
+-composer
+-gulp
+-sass
+
+
+/**************************
+ *
+ * General notes
+ *
+**************************/
+classes_array --> flattedended into $classes variable
+
+$nav_style
+tabbed - tabs
+left nav - leftnav
+default - default
+
+banner
+Bruce49
+C0lvard!
+
+
+/**************************
+ *
+ * Responsive Images
+ *
+**************************/
+
+template.php 
+function YOURTHEMENAME_preprocess_image(&$vars)
+{
+    $vars['attributes']['class'][] = 'img-responsive';
+}
+function YOURTHEMENAME_preprocess_image_style(&$vars)
+{
+    $vars['attributes']['class'][] = 'img-responsive';
+}
+
+
+/**************************
+ *
+ * URL References
+ *
+**************************/
+
+-Creating token
+http://www.taggartjensen.com/code-snip/drupal-7-create-custom-token-module
+
+-Creating panel plugin
+http://precessionmedia.com/blog/creating-custom-panels-style-plugin-background-image-support
+http://www.nicklewis.org/drupal/tutorials/ctools-custom-content-types
+https://ohthehugemanatee.org/blog/2014/01/03/how-to-create-a-custom-panels-pane/
+https://fourword.fourkitchens.com/article/creating-custom-panels-panes-and-use-substitution-too
+
+-Related Conent
+Good example for creating a custom module.
+Featured Content Module 
+Similar by Terms
+
+
+
+
+
+/**************************
+ *
+ * Delete specialintro
+ *
+**************************/
+
+Copy all field data from field_specialintro to field_newsletter_blurb for each entity where field_newsletter_blurb is empty.
+//http://drupal.stackexchange.com/questions/97113/transfer-value-of-field-to-another-field-under-content-type-manage-fields
+
+
+INSERT INTO field_data_field_newsletter_blurb
+SELECT a.*
+FROM field_data_field_specialintro a
+LEFT JOIN field_data_field_newsletter_blurb b ON a.entity_id = b.entity_id
+AND a.entity_type = b.entity_type
+WHERE b.entity_id IS NULL;
+
+/**************************
+ *
+ * To do after migrate
+ *
+**************************/
+
+Check Martin Zimmerman author page and stories
+check nodes 10068-10077 - check top photo
+Bring in the iframes for ourregion on both PC&UI
+
+
+
+/**************************
+ *
+ * image styles we are using
+ *
+**************************/
+
+newsletter-spotlight
+newsletter-ui-featured
+large
+w700
+w510
+w325h220
+w300
+w250h180
+gallery_slide
+gallery_thumb
+
+

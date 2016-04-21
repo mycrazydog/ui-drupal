@@ -1,0 +1,17 @@
+<?php
+/**
+ * Implements hook_form_alter().
+ */
+function modify_select_form_alter(&$form, $form_state, $form_id) {
+  if($form_id == 'story_node_form' || $form_id == 'display_node_form' ){
+  
+    //drupal_set_message('<pre>' . print_r($form, true) . '</pre>');
+    //$form['taxonomy_vocabulary_11']['#language']['#size'] = '100';
+    
+    $form['taxonomy_vocabulary_11'][$form['taxonomy_vocabulary_11']['#language']]['#size'] = '25';
+    
+  }
+}
+
+//https://www.drupal.org/node/651106
+//https://www.drupal.org/node/1561658

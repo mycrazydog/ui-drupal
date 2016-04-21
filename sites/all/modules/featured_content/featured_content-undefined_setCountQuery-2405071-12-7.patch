@@ -1,0 +1,70 @@
+diff --git a/featured_content.module b/featured_content.module
+index e7082d4..95dd8a4 100644
+--- a/featured_content.module
++++ b/featured_content.module
+@@ -1939,31 +1939,38 @@ function featured_content_get_path_pattern($match, $path, $index) {
+ function featured_content_sort_nodes_by_terms($nodes, $order = 'desc') {
+   // Only works if on a node page.
+   if (arg(0) == 'node' && is_numeric(arg(1))) {
+-    $tmp = array();
++    $sorted_nodes = array();
+     $nids = array_keys($nodes);
+ 
+-    $count_query = db_select('taxonomy_index', 'ti');
+-    $count_query->addExpression('COUNT(ti.tid)', 'count');
++    // Select the taxonomy index table
+     $query = db_select('taxonomy_index', 'ti');
+-    $query->setCountQuery($count_query);
+     $query->fields('ti', array('nid'));
++    // We only want to look at the nodes from the parameters
+     $query->condition('ti.nid', $nids);
++    // We then join to taxonomy index again to have node to node links through terms
+     $query->join('taxonomy_index', 'ti2', 'ti.tid = ti2.tid');
++    // And filter to the node we're looking at so we have nodes with term to term links with the node we're looking at
+     $query->condition('ti2.nid', arg(1));
++    // Group by nodes
+     $query->groupBy('ti.nid');
++    // Count how many taxonomy terms per node we have
++    $query->addExpression('count(ti.tid)', 'count');
++    // Then order by the number of terms.
+     $query->orderBy('count', $order);
+ 
+     $results = $query->execute();
++    // First add all the nodes with matching terms from $order high to low.
+     foreach ($results as $row) {
+-      $tmp[$row->nid] = $nodes[$row->nid];
++      $sorted_nodes[$row->nid] = $nodes[$row->nid];
+     }
++    // Then add any remaining nodes at the end.
+     foreach ($nodes as $nid => $node) {
+-      if (! isset($tmp[$nid])) {
++      if (! isset($sorted_nodes[$nid])) {
+         // Tack on the rest of the nodes.
+-        $tmp[$nid] = $node;
++        $sorted_nodes[$nid] = $node;
+       }
+     }
+-    $nodes = $tmp;
++    $nodes = $sorted_nodes;
+   }
+   return $nodes;
+ }
+@@ -1981,14 +1988,14 @@ function featured_content_sort_nodes_by_vocab($nodes, $order = 'desc') {
+     $num_terms = array();
+     $weights = array();
+     // FIXME: For some reason taxonomy_index doesn't have a node vid but should.
+-    $count_query = db_select('taxonomy_index', 'ti');
+-    $count_query->addExpression('COUNT(*)', 'count');
++
+     $query = db_select('taxonomy_index', 'ti');
+-    $query->setCountQuery($count_query);
+-    $query->fields('ti', array('nid', 'tid', 'vid', 'weight'));
++    $query->fields('ti', array('nid', 'tid'));
++    $query->addExpression('COUNT(*)', 'count');
+     $query->join('node', 'n', 'ti.nid = n.vid');
+     $query->join('taxonomy_term_data', 'td', 'ti.tid = td.tid');
+     $query->join('taxonomy_vocabulary', 'v', 'td.vid = v.vid');
++    $query->fields('v', array('vid', 'weight'));
+     $query->join('taxonomy_index', 'ti2', 'ti.tid = ti2.tid');
+     $query->join('node', 'n2', 'ti2.nid = n2.nid');
+     $query->condition('n2.nid', $node->nid);

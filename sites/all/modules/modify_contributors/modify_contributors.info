@@ -1,0 +1,8 @@
+name = modify_contributors
+description = "Modify contributors"
+core = 7.x
+version = "7.x-1.0"
+project = "modify_contributors"
+datestamp = "1378820929"
+files[] = modify_contributors.module
+; files[] = modify_contributors_handler_node_meta_contributors.inc

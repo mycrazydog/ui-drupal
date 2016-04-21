@@ -1,0 +1,1399 @@
+/**
+ * This file should get overwritten if Method 1 is used. If Method 2 is chosen,
+ * remove this comment and start adding your styles to this file.
+ */
+
+/*
+ * Globals
+ */
+
+/*
+html {
+
+
+	-webkit-box-sizing: border-box;
+	//www.456bereastreet.com/archive/201012/controlling_text_size_in_safari_for_ios_without_disabling_user_zoom/
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	// Corrects text resizing oddly in IE6/7 when body font-size is set using em units http://clagnut.com/blog/348/#c790
+
+	-webkit-text-size-adjust: 100%;
+	// Prevents iOS text size adjust after orientation change, without disabling user zoom
+	-ms-text-size-adjust: 100%;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+*/
+
+
+/*--------------------------------------------------------------
+2.0 Typography
+--------------------------------------------------------------*/
+
+/*body{
+	font-family: "PT Serif", Georgia, serif;
+	letter-spacing:-0.02em;
+	font-weight:400;
+	font-style:normal;
+	text-rendering:optimizeLegibility;
+	-webkit-font-smoothing:antialiased;
+	-moz-osx-font-smoothing:grayscale;
+	-moz-font-feature-settings:"liga" on;
+	color:rgba(0,0,0,0.8);
+	font-size:18px;
+	line-height:1.4
+}*/
+
+/*h1, h2, h3, h4, h5, h6 {
+	font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-weight: bold;
+	clear: both;
+	margin: 25px 0;
+	margin:  2.5rem 0;
+	text-transform: uppercase;
+}*/
+
+h1, h2, h3, h4, h5, h6 {
+color: #00728F;
+font-family: times,"times new roman",serif;
+}
+
+
+a{
+	color: #00728F;
+}
+
+body.domain-ui-uncc-edu .view-content a {
+	color: #006633;
+}
+body.domain-ui-uncc-edu .story-body a {
+	color: #5cb85c;
+}
+
+
+
+
+
+
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+	text-decoration: none;
+	color: inherit;
+}
+h1 a:visited, h2 a:visited, h3 a:visited, h4 a:visited, h5 a:visited, h6 a:visited {
+	color: inherit;
+}
+
+h1 {
+	font-size: 32px;
+	font-size: 3.2rem;
+}
+
+h2 {
+	font-size: 30px;
+	font-size: 3.0rem;
+}
+
+h3 {
+	font-size: 25px;
+	font-size: 2.5rem;
+}
+
+h4 {
+	font-size: 20px;
+	font-size: 2.0rem;
+}
+
+h5 {
+	font-size: 18px;
+	font-size: 1.8rem;
+}
+
+h6 {
+	font-size: 16px;
+	font-size: 1.6rem;
+}
+
+p {
+	margin-bottom: 1.5em;
+
+	-ms-word-wrap: break-word;
+	word-wrap: break-word;
+}
+
+b, strong {
+	font-weight: bold;
+}
+
+dfn, em, i {
+	font-style: italic;	
+}
+cite {
+	font-style: italic;	
+	font-size: .9em;
+}
+
+
+blockquote, q {
+	font-size: 30px;
+	font-size: 3rem;
+	font-style: italic;
+
+	margin: 0;
+
+	quotes: none;
+}
+
+hr{
+	border-top-color: #00728f;
+}
+
+@media screen and (min-width: 600px) {
+	blockquote, q {
+		margin-left: 200px;
+		margin-left: 20rem;
+	}
+}
+
+q:before {
+	content: "\201C";
+}
+q:after {
+	content: "\201D";
+}
+
+address {
+	margin: 0 0 1.5em;
+}
+
+pre {
+	font-family: "Courier 10 Pitch", Courier, monospace;
+	font-size: 18px;
+	font-size: 1.8rem;
+	line-height: 1.6;
+
+	overflow: auto;
+
+	max-width: 100%;
+	margin-bottom: 1.6em;
+	padding: 1.6em;
+
+	tab-size: 4;
+
+	background: #f6f6f6;
+}
+
+code, kbd, tt, var {
+	font-family: "Lucida Sans Typewriter", "Lucida Console", Monaco, monospace;
+}
+
+abbr, acronym {
+	cursor: help;
+
+	border-bottom: 1px dotted #666;
+}
+
+mark, ins {
+	text-decoration: none;
+}
+
+sup,
+sub {
+	font-size: 75%;
+	line-height: 0;
+
+	position: relative;
+
+	height: 0;
+
+	vertical-align: baseline;
+}
+
+sup {
+	bottom: 1ex;
+}
+
+sub {
+	top: .5ex;
+}
+
+small {
+	font-size: 75%;
+}
+
+big {
+	font-size: 125%;
+}
+
+del, strike {
+	color: #ff4200;
+}
+
+
+.label-ui{
+	background-color: #337ab7;;
+}
+.label-pc{
+	background-color: #5cb85c;
+}
+
+
+
+
+
+/*
+ *
+ * Override Bootstrap's default container width
+ *
+ */
+
+@media (min-width: 1200px) {
+  .container {
+    width: 970px;
+  }
+}
+
+
+
+/*
+ * Blog Entry
+ */
+/*.entry-content {
+	font-size: 21px;
+	font-size: 2.1rem;
+	line-height: 1.7;
+}*/
+.blog-post {
+  margin-bottom: 60px;
+}
+.blog-post-title {
+  margin-bottom: 5px;
+  font-size: 40px;
+}
+.blog-post-meta {
+  margin-bottom: 20px;
+  color: #999;
+}
+
+/* Sidebar modules for boxing content */
+.sidebar-module {
+  padding: 15px;
+  margin: 0 -15px 15px;
+}
+.sidebar-module-inset {
+  padding: 15px;
+  background-color: #f5f5f5;
+  border-radius: 4px;
+}
+.sidebar-module-inset p:last-child,
+.sidebar-module-inset ul:last-child,
+.sidebar-module-inset ol:last-child {
+  margin-bottom: 0;
+}
+
+
+
+/* NEW */
+/* GLOBAL */
+.vertical-align {
+  display: flex;
+  align-items: center;height:100%
+}
+
+
+
+/**************************************
+
+HEADER / BANNER
+
+*************************************/
+header#unccedu-header {
+    height: 100px;
+    color:#fff;
+    background: url("/sites/all/themes/uncc_bootstrap/img/header-bg.png") repeat-x scroll center top #ffffff;
+}
+header#unccedu-header a {
+  color:#fff;
+}
+header#unccedu-header .container {
+    background: url("/sites/all/themes/uncc_bootstrap/img/header-logo-watermark.png") repeat scroll center center #ffffff;
+    height: 100px;
+    max-width: 970px;
+}
+a.site-title {
+    font-family: times,"times new roman",serif;
+    font-size: 2.2rem;
+    line-height:1.0rem;
+    text-align: left;
+}
+#subbrand-link a {
+    font-family: times new roman;
+    font-size: 1.2em !important;
+    font-style: italic;
+    margin-top: 5px;
+}
+
+#header-utility-links {
+    list-style-type: none;
+    margin-bottom: 7px;
+}
+#header-utility-links li {
+    font-family: arial,helvetica,sans-serif;
+    font-size: 1.3rem;
+    line-height: 1.45rem;
+    text-align: right;
+}
+.header-utility-search-wrapper {
+    float: right;
+}
+.form-control.utility-search-input{
+  border-radius: 0px;
+  border: medium none;
+  font-size: 13px;
+  height: 19px;
+  padding: 0 17px 1px 6px;
+  width: 135px;
+  float:left;
+}
+.utility-search-button {
+    border: 0 none;
+    border-radius: 0px;
+    display: inline-block;
+    height: 19px;
+    margin: 0;
+    outline: medium none;
+    padding: 0;
+    vertical-align: top;
+    width: 19px;
+    float:left;
+}
+
+.banner-wrapper {
+    margin: auto;
+    max-height: 400px;
+    max-width: 1040px;
+    overflow: hidden;
+}
+
+body.domain-plancharlotte-org .banner-wrapper {
+ max-width: 940px;
+}
+
+
+.main-content{background-color:#fff;}
+
+/***************************************************************************
+***************************************************************************
+
+NAV
+
+IMPORTANT: This is where the difference in the templates BEGINS
+
+
+Tabs = nav-tabs & navbar-tabs
+-> Tabs that go up into the banner, page has a gray background
+
+Blocks = nav-blocks & navbar-blocks
+-> Blocks that go below the banner, page has a white background
+
+<body class="nav-XXXX">
+<nav class="navbar navbar-default navbar-XXXX">
+
+***************************************************************************
+**************************************************************************/
+
+/* Changes the color of the body background */
+body.nav-blocks{
+	background-color:#fff;
+}
+body.nav-tabs{
+	background-color:#dddddd;
+}
+
+
+
+
+/*******************
+This block of css handles the width for the tab version of the nav
+********************/
+/*body.nav-tabs .main-nav,
+body.nav-tabs .main-nav .container-fluid,
+body.nav-tabs .main-nav .navbar-collapse{
+padding:0px;
+}*/
+
+
+/* Extra Small Devices, Phones */ 
+@media only screen and (min-width : 480px) {
+	body.nav-tabs .main-nav,
+	body.nav-tabs .main-nav .container-fluid,
+	body.nav-tabs .main-nav .navbar-collapse{
+		padding:0px;
+	}
+}
+@media only screen and (max-width : 480px) {
+	body.nav-tabs .main-nav{
+		background-color: #fff;	
+	}
+}
+
+
+
+.main-nav .navbar{
+margin-bottom:0px;border:none;
+}
+/***********************************************/
+
+
+
+nav.navbar-blocks .container-fluid  {
+	padding-left:0px;
+	padding-right: 0px;
+}
+
+nav.navbar-blocks .container-fluid>.navbar-collapse,
+nav.navbar-blocks .container-fluid>.navbar-header,
+nav.navbar-blocks .container>.navbar-collapse,
+nav.navbar-blocks .container>.navbar-header{
+   	margin-left: -15px;
+   	margin-right: -15px;
+}
+
+.main-nav .navbar{margin-bottom:0px;border:none;}
+
+/*********/
+@media (min-width: 768px) {
+
+.main-nav{background-color:#fff;}
+.main-nav .navbar-default {background: none;}
+/*************/
+/*******navbar-tabs*******/
+.navbar-tabs {
+    margin: auto;
+    /*max-width: 960px;*/
+    position: relative;
+    top: -46px;
+    z-index: 499;
+}
+.navbar-tabs .nav-justified > li > a {
+    background-color:rgba(240, 255, 255, 0.8);
+    margin-right:4px !important;
+    /*border-right: 1px solid rgba(255, 245, 255, .7);*/
+    color: #555555 !important;
+    font-family: arial,helvetica,sans-serif;
+}
+.navbar-tabs .nav > li > a {
+  padding:15px 0;
+}
+.navbar-tabs .nav-justified > li > a:hover {
+    background-color: rgba(255, 255, 255, 1);
+}
+.navbar-tabs .nav-justified > li:last-child > a {
+    margin-right:0px !important;
+}
+/*************/
+/*******navbar-blocks*******/
+.navbar-blocks .nav-justified > li > a {
+    color: #707070;
+    text-align:left;
+    border-right: 1px dotted #bbbbbb;
+    font-family: arial,helvetica,sans-serif;
+    font-size: 0.85em;
+}
+.navbar-blocks .nav > li > a {
+  padding-top: 9px;
+  padding-bottom: 20px;
+}
+.navbar-blocks .nav-justified > li.active > a,
+.navbar-blocks .nav-justified > li > a:hover {
+    color: #0a7543 !important;
+    background-color:#f6f6f6;
+}
+
+/*************/
+
+body.nav-blocks footer .row{
+	margin-right: 0px;
+	margin-left: 0px;
+}
+
+
+} /* end min-width */
+
+
+
+
+/***************************************************************************
+***************************************************************************
+
+IMPORTANT: This is where the difference in the templates ENDS
+
+***************************************************************************
+**************************************************************************/
+
+
+/*
+
+ * Blog name and description
+ */
+.blog-header {
+  /*padding-top: 20px;*/
+  padding-bottom: 20px;
+}
+.blog-title {
+  margin-bottom: 0;
+  font-size: 60px;
+  font-weight: normal;
+}
+.blog-description {
+  font-size: 20px;
+  color: #999;
+}
+
+
+
+
+
+/**************************************
+
+FOOTER
+
+*************************************/
+
+
+footer.container {
+    /*background: url("http://www.uncc.edu/sites/all/themes/unccedu/images/footer-bg.png") repeat-x scroll left top #fff;
+    //height: 110px;*/
+    padding-bottom:2.0rem;
+}
+#footer-utility-bar{background:#00703c; min-height:35px;}
+#footer-utility-bar ul {margin-bottom:0px;}
+
+#footer-utility-bar ul li a {
+    color: #ffffff;
+    font-family: arial,helvetica,sans-serif;
+    font-size: 1.25rem;
+    text-decoration: none;
+}
+
+#footer-university-info #university-name a {
+    color: #00703c;
+    font-family: arial,helvetica,sans-serif !important;
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: none !important;
+}
+#footer-university-info #university-address,
+#footer-university-info #university-legal {
+    color: #666666;
+    font-family: arial,helvetica,sans-serif;
+    font-size: 12px;
+    line-height: 14px !important;
+    margin-bottom: 5px;
+    margin-top: 3px;
+}
+#footer-university-info #university-legal a {
+    color: #006633;
+    text-decoration: underline;
+}
+#footer-follow #social-title {
+    border-bottom: 0 none;
+    color: #666666 !important;
+    font-family: arial,helvetica,sans-serif;
+    font-size: 1.0em;
+    font-weight: bold;
+    margin-bottom: 5px;
+    margin-right: 20px;
+}
+div.social-icons,
+div.social-icons a {
+    display: inline-block;
+    height: 30px;
+    margin-right: 3px;
+    vertical-align: top;
+    width: 30px;
+}
+div.social-icons.facebook a {
+    background: url("/sites/all/themes/uncc_bootstrap/img/social-icons.png") no-repeat scroll 0 0 transparent;
+}
+div.social-icons.blog a {
+    background: url("/sites/all/themes/uncc_bootstrap/img/social-icons.png") no-repeat scroll 0 -30px transparent;
+}
+div.social-icons.twitter a {
+    background: url("/sites/all/themes/uncc_bootstrap/img/social-icons.png") no-repeat scroll 0 -60px transparent;
+}
+div.social-icons.flickr a {
+    background: url("/sites/all/themes/uncc_bootstrap/img/social-icons.png") no-repeat scroll 0 -90px transparent;
+}
+div.social-icons.youtube a {
+    background: url("/sites/all/themes/uncc_bootstrap/img/social-icons.png") no-repeat scroll 0 -120px transparent;
+}
+
+
+
+
+/**************************************
+
+FULL IMAGE WIDTH + jquery(stag)
+
+*************************************/
+
+.wp-caption {
+    font-size: 1rem;
+    margin: 3.75rem;
+    max-width: 100%;
+}
+.alignnone {
+    max-width: 100%;
+    position: relative;
+}
+img[class*="align"], img[class*="wp-image-"], img[class*="attachment-"] {
+    height: auto;
+}
+img.size-full, img.size-large, img.wp-post-image {
+    height: auto;
+}
+.size-auto, .size-full, .size-large, .size-medium, .size-thumbnail {
+    height: auto;
+    max-width: 100%;
+}
+
+/**************************************
+
+OVERRIDE BOOTSTRAP STYLES
+
+*************************************/
+
+.list-group-item{
+	margin-bottom: 0px;
+
+	border-top: none;
+	border-right: none;
+	border-bottom: 1px solid #DDD;
+	border-left: none;
+
+	border-top-left-radius:0px !important;
+	border-right-left-radius:0px !important;
+	border-bottom-left-radius:0px !important;
+	border-left-left-radius:0px !important;
+
+	padding: 10px 0px;
+}
+
+.checkbox label{
+	padding-left: 5px;
+}
+
+.thumbnail{
+	margin-bottom: 0px;
+	
+	padding-top: none;
+	padding-bottom:25px;
+	padding-left: none;
+	padding-right: none;	
+	
+	border-radius: 0px;	
+	border-top: none;
+	border-left: none;
+	border-right:none;
+	border-bottom:none;
+}
+
+.media-left, .media>.pull-left{
+/*	padding-right: 20px;*/	
+}
+
+
+
+
+/* Large Devices, Wide Screens */
+/*@media only screen and (max-width : 1200px) {
+	.media-left img, .media-right img {
+	    max-width: 250px;
+	}
+}*/
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 992px) {
+	.media-left img{
+	    max-width: 325px;
+	}
+	.media-right img{
+	    max-width: 380px;
+	} 
+}
+
+/* Small Devices, Tablets */
+@media only screen and (max-width : 768px) {
+	.media-left img, .media-right img {
+	    max-width: 160px;
+	}
+}
+
+/* Extra Small Devices, Phones */ 
+@media only screen and (max-width : 480px) {
+	.media-left img, .media-right img {
+	    max-width: 80px;
+	}
+}
+
+/* Custom, iPhone Retina */ 
+@media only screen and (max-width : 320px) {
+	.media-left img, .media-right img {
+	    max-width: 80px;
+	} 
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/**************************************
+
+CUSTOM GLOBALS
+
+*************************************/
+
+.nopad{
+	padding: 0!important;
+}
+
+.nobullets{
+	list-style-type: none;
+	margin: 0;
+
+}
+.story-body table.noborder{
+	border-top: none !important;
+	border-right: none !important;
+	border-bottom: none !important;
+	border-left: none !important;	
+}
+
+.meta-small {
+    color: #939393;
+    font-size: 11px;
+}
+
+.byline{
+	color: #939393;
+	font-size: 1.25rem;
+}
+
+.story-photo{
+	margin-bottom: 25px;
+}
+
+.story-data{
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.story-meta a, .story-meta {
+    color: #5D5D5D;
+    text-decoration: none;
+    font-size: 1.6rem;
+}
+
+/* Fixes Bug with Sharethis buttons */
+.stButton .stHBubble,
+.stButton .stMainServices {
+height: 25px !important;
+}
+
+.story-share{
+	text-align: right;
+}
+
+.story-description, .story-description p {
+    font-size: 1.9rem;
+    font-style: italic;
+    margin: 0px;
+}
+
+div.caption {
+    height: auto !important;
+}
+
+/* Hack to make the caption width be the same as the img within the figure tag */
+figure{display:table}
+figcaption{display:table-caption;caption-side:bottom; padding-top: 15px;}
+
+.caption img {
+    /* Hack, because jcaption leaves the original style on the image and copies it over to the new caption div */
+	margin:0px 0px 7px 0px !important;
+	/* Hack to make caption images responsive*/
+	
+	display: block;
+	max-width: 100%;
+	height: auto;
+}
+
+div.caption{
+	display: block;
+	max-width: 100%;	
+	height: auto;	
+}
+
+@media only screen and (max-width : 480px) {
+	div.caption{
+	 width: 100% !important;
+	 margin:9px 0px !important;
+	}
+}
+
+
+
+.image-captioned{
+	color: #666;
+	font-family: "Helvetica Neue",Arial;
+	font-size: 12px;
+	line-height: 14px;
+	margin: 0px 0px 7px;
+	text-align: left;
+}
+
+.align-left {
+    float: left;
+    margin: 17px 17px 17px 0px;
+}
+
+.align-right {
+    float: right;
+    margin: 17px 0px 17px 17px;
+}
+
+.align-center {
+    text-align: center;
+    margin: 17px 0px;
+}
+
+.story-body table, .story-body table td{
+	border: none !important;
+	border-collapse: collapse !important;
+}
+
+.story-body table  {
+   border-bottom: 4px solid #00728f !important;
+   border-top: 4px solid #00728f !important;
+     
+    display: block;
+    float: right;
+    margin: 5px 0 5px 10px;
+    padding: 10px 0 10px 0;
+}
+.story-body table h3, .story-body table h4, .story-body table h5 {
+	margin-top: 0px;
+}
+
+.story-body .btn {
+	color: #fff !important;
+	font-size: 1.3em;
+}
+
+.node-type-story .highlight, .node-type-story .highlightrule {
+    margin-right: 70px;
+    margin-left: 70px;
+}
+
+.highlight, .highlightrule {
+    font-size: 1.25em;
+    font-weight: bold;
+    line-height: 1.25;
+    margin-bottom: -8px;
+    margin-top: 0;
+    display: block;
+    color: #808080;
+}
+
+.highlightrule:after {
+    height: 1px;
+    background: #808080;
+    width: 60%;
+    display: block;
+    content: "";
+    margin: 25px auto;
+}
+
+.view-id-relatednodes2 li.list-group-item a{
+	color: #000;
+}
+
+
+
+/************************************
+
+SOCIAL MEDIA STYLE
+
+
+*************************************/
+
+ul.article-social {
+    list-style: none;
+    /*float: right;*/
+        padding: 0px;
+}
+
+@media only screen and (max-width : 480px) {
+	ul.article-social{
+		padding: 0;
+	}
+}
+
+
+.article-social {
+    font-family: "BentonSans",-apple-system,"Roboto",Helvetica,Arial,sans-serif;
+    font-weight: 400;
+    overflow: hidden;
+}
+.article-social.horizontal li {
+    float: left;
+}
+
+.article-social.horizontal li a {
+    margin-left: 5px;
+}
+.article-social.horizontal li a.btn-print {
+    margin-left: 10px;
+    font-size:1.5em;
+}
+
+.btn-social.icon-facebook-solid-before {
+    background: #2272b4;
+    border: 0;
+    color: #fff;
+}
+.btn-social.icon-twitter-solid-before {
+    background: #40b5e5;
+    border: 0;
+    color: #fff;
+}
+
+.btn-social.horizontal {
+    height: 26px;
+    line-height: 26px;
+    padding: 0 12px;
+    text-align: center;
+    width: 140px;
+}
+
+.btn-social, .btn-print {
+    color: #666;
+    cursor: pointer;
+    display: inline-block;
+    line-height: 26px;
+    margin-right: 0;
+    margin-top: 0 !important;
+}
+.btn-social:hover{
+	text-decoration: none;
+	background-color: #00728F;
+}
+
+.button, .button-alt, .send-email .btn-social, .btn-social.email, .button-filter, .date-picker-carousel .slick-prev, .date-picker-carousel .slick-next, .button-filter-alt, .btn-social, .pick-center-data .btn {
+    -webkit-transition-duration: 0.25s;
+    transition-duration: 0.25s;
+    -webkit-transition-property: background-color;
+    -moz-transition-property: background-color;
+    -ms-transition-property: background-color;
+    -o-transition-property: background-color;
+    transition-property: background-color;
+    background-color: #36c;
+    border: 0;
+    border-radius: 4px;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-family: "BentonSans",-apple-system,"Roboto",Helvetica,Arial,sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 2.462;
+    max-width: 414px;
+    padding: 0 18px;
+    position: relative;
+    text-align: center;
+    white-space: nowrap;
+}
+
+
+.btn-social.icon-facebook-solid-before.horizontal:before {
+    font-size: 14px;
+}
+/**/
+.btn-social.horizontal:before, .btn-social.horizontal:after {
+    display: inline-block;
+    float: none;
+}
+
+/**/
+.btn-social:before {
+    margin-right: 4px;
+    text-align: center;
+}
+.button:before, .button-alt:before, .send-email .btn-social:before, .btn-social.email:before, .button-filter:before, .date-picker-carousel .slick-prev:before, .date-picker-carousel .slick-next:before, .button-filter-alt:before, .btn-social:before, .pick-center-data .btn:before {
+    margin: 0 9px 0 0;
+}
+
+
+.btn-social.icon-facebook-solid-before.horizontal:after {
+    content: 'Share with Facebook';
+}
+.btn-social.icon-twitter-solid-before.horizontal:after {
+    content: 'Share with Twitter';
+}
+/**/
+.btn-social.horizontal:before, .btn-social.horizontal:after {
+    display: inline-block;
+    float: none;
+}
+/**/
+.btn-social:after {
+    font-size: 1.1rem;
+    margin-left: 0;
+    text-transform: none;
+}
+
+
+/**************************************
+
+UI STYLES
+
+*************************************/
+
+.homepage-topper{
+	padding-bottom:20px;
+}
+
+h3.homepage-title, h2.view-title{
+color: #000;	
+} 
+
+.homepage-desc {
+    padding-right: 20px;
+    color: #707070;
+    font-family: times,"times new roman",serif;
+    font-size:1.75rem;
+}
+.homepage-sites {
+    border-left: 1px solid #00728F;
+}
+.homepage-sites ul {
+    list-style-type: square;
+    color: #00728F;
+}
+
+.view-Highlight{
+	padding-bottom:40px;
+}
+
+@media (min-width: 768px) {
+	.ui-home-hightlight{padding-right:35px;}
+}
+
+.pane-pc-topstories{
+	margin-top: 20px;
+	/*border-top: 3px solid #86ca93;*/
+	margin-bottom: 20px;
+	border-bottom: 3px solid #86ca93;
+}
+
+.pane-pc-topstories li.list-group-item:last-child {
+    border-bottom: none;
+}
+
+
+
+
+
+/**************************************
+
+SPOTLIGHT
+
+*************************************/
+@media (min-width: 768px) {
+	h4.spotlight-title{
+		font-size: 18px;
+		font-size: 1.8rem;
+	}
+
+
+/*  .spotlight-item:nth-child(odd) {
+  	padding-left: 0px;
+    padding-right:20px
+  }
+
+  .spotlight-item:nth-child(even) {
+  	padding-left: 20px;
+    padding-right:0px
+  }*/
+  .spotlight-item {
+  	padding-left: 0px;
+  	padding-right:15px;
+  }  
+  
+  body.page-home div.panel-panel.left.col-sm-9 {
+      /*padding-right: 0px;*/
+  }
+  
+  body.page-home div.panel-panel.right.col-sm-3 {
+  	padding-left:0px;
+  }
+  
+}
+
+.spotlight-item{
+	min-height:325px;
+}
+
+.spotlight-footer {
+    min-height: 60px;
+    padding-top: 7px;
+}
+
+.spotlight-left {
+    width: 239px;
+    float: left;
+    padding-right: 5px;
+}
+
+.spotlight-right {
+    width: 94px;
+    float: left;
+    border-left: 1px solid #00728F;
+    padding-left: 10px;
+    margin-top: 7px;
+    height: 60px;
+    font-style: italic;
+    color: #00728F;
+    font-family: times;
+    font-size: 14px;
+    line-height: 14px;
+}
+
+h4.spotlight-title{
+	margin-top: 7px;
+	margin-bottom:7px;
+}
+.spotlight-left .byline{
+	font-size: 1.14rem;
+}
+
+/**************************************
+
+SIDEBAR
+
+*************************************/
+
+h2.block-title, h2.pane-title {
+    color: #000;
+    font-weight: bold !important;
+    font-size: 20px !important;
+    line-height: 20px !important;
+    padding-bottom: 10px !important;
+    margin-bottom: 10px !important;
+    border-bottom: 2px solid #00728f;
+}
+
+/*.newsfeed a{
+	font-size: 16px;
+	font-size: 1.6rem;
+	line-height: 16px;
+}*/
+
+/************ SIDEBAR NAV *************/
+
+body:not(.panels-ipe) .right div:first-of-type h2,
+body.panels-ipe .right .panels-ipe-portlet-wrapper:first-of-type h2  {
+    margin-top: 0px;
+}
+
+.block-menu-block .block-title{border-bottom:none;}
+
+.block-menu-block ul.menu li{
+	border-top: 1px solid #CCCCCC;
+	margin: 0 0 0 0.5em;
+}
+
+.block-menu-block ul.menu li a {
+    color: #555555;
+    text-decoration: none;
+    display: block;
+    line-height: 1.1em;
+    padding: 0.7em 0 0.7em 0.2em;
+}
+
+.nolink{
+	color: #606060;
+	text-decoration: none;
+	display: block;
+	line-height: 1.1em;
+	padding: 0.7em 0 0.7em 0.2em;
+	font-weight: bold;
+}
+
+.breadcrumb .nolink{
+	display: inherit;
+	font-weight: normal;
+}
+
+
+.mailchimp-newsletter-wrapper{
+	margin-left: 15px;
+	padding-bottom: 12px;
+}
+
+
+/*************************************/
+
+
+/**************************************
+
+Gallery
+
+*************************************/
+.galleryformatter {margin-bottom: 25px;}
+
+.home-gallery-blurb{margin-top: 10px;}
+
+/**************************************
+
+Landing pages
+
+*************************************/
+.landing-box{
+	margin-bottom: 30px;
+}
+.landing-box h3{
+	margin-top: 0;
+}
+.landing-box h3.contrast {
+	background-color:#337ab7;
+	color: #FFF;
+	padding: 5px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/**************************************
+
+PC STYLES
+
+*************************************/
+@media (min-width: 768px) {
+	body.domain-plancharlotte-org .navbar{
+		margin-bottom: 20px;
+	}
+}
+
+.kw-section{
+padding-bottom: 15px;
+border-top: 8px solid #0fc48a;
+   border-bottom: 8px solid #0fc48a;
+}
+.kw-section .thumbnail h4 a {
+	color: #01ae77;
+}
+
+
+.pc-articles-thumbs{
+	padding-top:25px;
+}
+.pc-articles-thumbs .thumbnail{
+	padding:0px;
+}
+
+
+.view-pc-highlight{
+	padding-bottom:35px;
+}
+
+.view-articles-pc li {
+	padding-bottom: 20px;
+}
+
+.view-home-nakedcityblog li:first-child {
+    padding-top: 0;
+} 
+
+/*********** PC VERTICAL ARTICLES *********/
+.pc-articles-vertical .thumbnail{
+	border-bottom: 1px solid #00728F;
+}
+.pc-articles-vertical img{
+	padding: 7px 0 7px 0;
+}
+
+/*********** PC  ARTICLES ****************/
+.pc-articles li.media{
+	border-bottom: 1px solid #00728F;
+	padding: 7px 0 20px 0;
+}
+
+/*********** PC OPINION PAGE *************/
+.pc-opinion-page .row{
+	border-bottom: 1px solid #00728F;
+	margin-bottom: 25px;
+	padding-bottom: 25px;
+}
+
+/*********** PC NAKED CITY BLOG *************/
+/* If widescreen, then logo and list are side by side */
+@media (min-width: 768px) {
+	.pane-home-nakedcityblog .NakedCity-Horizontal .view-header{
+		float: left;
+		width: 25%;		
+	}
+	
+	.pane-home-nakedcityblog .NakedCity-Horizontal .view-content{
+		float: left;
+		width: 75%;
+	}
+}
+
+
+
+/** PC ABOUT PAGE **/
+
+#pc-intro-block {
+    margin-top: 69px;
+    padding: 50px;
+    width: 100%;
+    z-index: 0;
+    box-shadow: 2px 2px 19px #AAA;
+    background-color: #FFF;
+    position: relative;
+}
+
+.aboutdesc {
+    width: 300px;
+    line-height: 22px;
+}
+
+#pc-statue {
+    position: relative;
+    left: 310px;
+    top: -570px;
+    width: 390px;
+    z-index: 1;
+}
+
+
+
+
+

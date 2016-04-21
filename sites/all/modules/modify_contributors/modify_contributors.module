@@ -1,0 +1,274 @@
+<?php
+/**
+
+* This module uses two fields (REQUIRED)
+*field_contributor = node reference field
+*field_special_author = simple text field
+
+ * To use in your THEME you have two options
+*1 in the template file (ex node--4--story.tpl.php) add-> print render($submitted);
+*2 in display suite add/show contributors field and add custom Display Suite Preprocess Field-> submitted
+
+ */
+
+
+
+/**
+ * Implements hook_node_view().
+ */
+
+function modify_contributors_preprocess_node(&$variables) {
+  $parent_nid = $variables['node']->nid;
+  $vContributors = modify_contributors_entity_query($parent_nid);
+  $variables['meta_contributors'] = $vContributors;
+}
+
+
+/**
+ * http://www.taggartjensen.com/code-snip/drupal-7-create-custom-token-module
+ * Implements hook_token_info().
+ */
+function modify_contributors_token_info() {
+// you will find this in the node section in path auto replacement pattrens
+// then you could use [node:relatedtype]/[node:title] as a url pattern
+  $info['tokens']['node']['meta_contributors'] = array(
+    'name' => t('Modify Contributors'),
+    'description' => t('Modify Contributors to combine special author and Contributors fields'), // this is so you see it in the big list
+  );
+  return $info;
+}
+/**
+ * Implements hook_tokens().
+ */
+function modify_contributors_tokens($type, $tokens, array $data = array(), array $options = array()) {
+$replacements = array();
+    $sanitize = !empty($options['sanitize']);
+    if ($type == 'node' && !empty($data['node'])) {
+        $node = $data['node'];
+
+        foreach ($tokens as $name => $original) {
+            switch ($name) {
+                    case 'meta_contributors':
+                    $toreplace = modify_contributors_entity_query($node->nid);
+                    $replacements[$original] = $toreplace;
+                    break;
+            }
+        }
+    }
+    return $replacements;
+}
+
+
+
+
+
+
+/*
+function unc_charlotte_views_view_field__field_contributors(&$variables){
+  //print $variables['output'];
+
+  $str =$variables['output'];
+  $arr=explode(",",$str);
+
+  //$parent_nid = $view->field['nid']->advanced_render($row);
+  //watchdog('firey', $field);
+  //dpm($variables);
+  return $variables['output'].'EAT SHat';
+}
+
+function unc_charlotte_views_view_fields__Highlight(&$variables){
+  $view = $vars['view'];
+  $field = $vars['field'];
+  $row = $vars['row'];
+  print $view->field['field_contributors']->advanced_render($row);
+}
+*/
+
+/**
+ * Implements hook_views_api().
+ */
+function modify_contributors_views_api() {
+  return array(
+    'api' => 3,
+    'path' => drupal_get_path('module', 'modify_contributors'),
+  );
+}
+
+
+/**
+ * Implements hook_views_data().
+ */
+function modify_contributors_views_data() {
+  $data['node']['meta_contributors'] = array(
+      'field' => array(
+        'title' => t('Meta Contributors'),
+        'help' => t('Combines contributors and special authors, also formats the result'),
+        'handler' => 'modify_contributors_handler_node_meta_contributors',
+      ),
+  );
+  return $data;
+}
+
+
+/**
+ * Helper function to retrieve all entities of a given type that reference the node.
+ * @param String $type
+ * @param int $nid
+ */
+
+function modify_contributors_entity_query($nid) {
+  $query = "SELECT n.nid, n.title FROM {node} n JOIN {field_data_field_contributors} f ON n.nid=f.field_contributors_nid WHERE f.entity_id=".$nid;
+  $result = db_query($query);
+  //dpm($result);
+
+  $items = array();
+  while ($row = $result->fetchObject()) {
+    $items[] = array('username' => $row->title, 'nid' => 'node/'.$row->nid);
+  }
+
+  //$query->addTag('debug');
+  //dpm($query);
+  //print "<pre>";
+  //print_r($items);
+  //print "</pre>";
+
+  $combined = unc_charlotte_article_contributors($items, $nid);
+
+  /*
+  *Use when want to output contributors and date together
+  $formatted_contributors = t('!username | @datetime',
+  array(
+    '!username' => $combined,
+    '@datetime' => date('M d, Y', $created)
+  ));
+  return $formatted_contributors;
+  */
+  return $combined;
+
+  /*
+//http://www.faqoverflow.com/drupal/11175.html
+$uids = array();
+// Use $query for readability
+$query = 'SELECT DISTINCT(ur.uid)
+  FROM {users_roles} AS ur
+  WHERE ur.rid IN (:rids)';
+$result = db_query($query, array(':rids' => array(1,2,3)));
+
+foreach ($result as $row) {
+  $uids[] = $row->uid;
+}
+$users = user_load_multiple($uids);
+  */
+}
+
+
+
+/**
+ * Custom Code
+ * function to format and link field_contributors and special authors
+ * returns string
+ * http://www.emoticode.net/php/drupal-7-node-with-multiple-authors.html
+*/
+function unc_charlotte_article_contributors($vars, $nid) {
+
+	$authors = array();
+	$strContributors = '';
+	$counter = 0;
+
+  // Check for special authors
+	$specialAuthor = special_author_entity_query('node',  $nid, 'field_special_author');
+	if($specialAuthor){
+		$authors[] = $specialAuthor;
+	}
+
+	if (count($vars) || ($specialAuthor)) {
+
+		foreach($vars as $author) {
+		  $counter++;
+			$authors[] = "<a href='/". $author['nid'] ."'>". $author['username'] ."</a>";
+		}
+
+		//There are more than one $var(contrubutor)
+    if (count($authors) > 1) {
+        $last_author = array_pop($authors);
+        return implode(", ", $authors) . " & " . $last_author;
+    }
+
+    //There is only one author
+		if (count($authors == 1)) {
+    	//watchdog('author', $authors[0]);
+        if (isset($authors[0])){
+        	return $authors[0];
+        }
+    }
+
+	}
+	// No contributor or special author
+  return t('Staff');
+}
+
+
+
+
+function modify_contributors_query_alter($query) {
+  if ($query->hasTag('debug')) {
+    $sql = (string)$query;
+    $connection = Database::getConnection();
+    foreach ((array) $query->arguments() as $key => $val) {
+      $quoted[$key] = $connection->quote($val);
+    }
+    $sql = strtr($sql, $quoted);
+    dpm($sql);
+  }
+}
+
+
+
+/**
+ * Helper function to retrieve all entities of a given type that reference the node.
+ * @param String $type
+ * @param int $nid
+ */
+
+function special_author_entity_query($type, $nid, $reference_field_id) {
+/*
+  $tbl = 'field_data_'.$reference_field_id;
+  $query = 'SELECT (ur.field_special_author_value)  FROM {'.$tbl.'} AS ur  WHERE ur.entity_id IN ('.$nid.')';
+  $result = db_query($query);
+  return $result;
+*/
+  $val = db_select('field_data_field_special_author', 'f')
+  ->fields('f', array('field_special_author_value'))
+  ->condition('entity_type', 'node')
+  //->condition('bundle', 'story')
+  ->condition('entity_id', $nid)
+  ->execute()
+  ->fetchField();
+  //print_r($val);
+  return $val;
+
+}
+
+
+
+
+class modify_contributors_handler_node_meta_contributors extends views_handler_field {
+
+  function construct() {
+    parent::construct();
+      $this->additional_fields['nid'] = array('table' => 'node', 'field' => 'nid');
+  }
+
+  function query(){
+  	$this->ensure_my_table();
+  	$this->add_additional_fields();
+  }
+
+
+  public function render($values) {
+    $nid = $this->get_value($values, 'nid');
+    return modify_contributors_entity_query($nid);
+    //return $values['field_contributors']['und'][0]['nid'];
+  }
+
+}

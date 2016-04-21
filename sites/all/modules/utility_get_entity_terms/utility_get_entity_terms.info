@@ -1,0 +1,9 @@
+name = utility_get_entity_terms
+description = Utility get entity terms
+core = 7.x
+; Information added by drupal.org packaging script on 2013-05-21
+version = "7.x-1.2"
+core = "7.x"
+project = "utility_get_entity_terms"
+datestamp = "1369122408"
+

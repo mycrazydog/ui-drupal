@@ -1,0 +1,9 @@
+name = Modify Title Photo
+description = Change title field on the node edit form to allow to more visibility of the input. *Note still limited to 1024 characters.
+core = 7.x
+files[] = modify_title_photo.module
+
+version = "7.x-1.0"
+core = "7.x"
+project = "modify_title_photo"
+datestamp = "1399652877"

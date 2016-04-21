@@ -1,0 +1,23 @@
+<?php
+/* http://drupal.stackexchange.com/questions/32861/how-do-i-alter-image-field-code-without-hacking-core */
+
+function modify_title_photo_field_widget_form_alter(&$element, &$form_state, $context) {
+  
+  // If this is an image field type
+  if ($context['field']['type'] == 'image') {
+    // Loop through the element children (there will always be at least one).
+    foreach (element_children($element) as $key => $child) {
+      // Add the new process function to the element
+      $element[$key]['#process'][] = 'modify_title_photo_image_field_widget_process';
+    }
+  }
+  
+}
+
+function modify_title_photo_image_field_widget_process($element, &$form_state, $form) {
+  // Change the title field to a textarea
+  $element['title']['#type'] = 'textarea';
+
+  // Return the altered element
+  return $element;
+}
