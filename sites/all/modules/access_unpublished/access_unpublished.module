@@ -46,6 +46,41 @@ function access_unpublished_permission() {
 }
 
 /**
+ * Implements hook_form_alter().
+ */
+function access_unpublished_form_node_form_alter(&$form, &$form_state, $form_id) {
+	
+	
+	
+	if (!empty($form['#node']->nid)) {
+	
+		if ($form['#node']->status == NODE_NOT_PUBLISHED) {
+	
+			if (user_access('access unpublished view hashkey')) { 
+		 	 		 
+				$nid = $form['#node']->nid;			
+				$au_url_key = variable_get('access_unpublished_url_key', 'hash');
+				$au_link = l(t("hashed link"), 'node/' . $nid,
+				 array(
+				   'query' => array(
+				     $au_url_key => access_unpublished_get_hash_from_nodeid($nid),
+				   ),
+				   'attributes' => array(
+				     // We need a extra class for link with class="active" from l()
+				     'class' => array('access_unpublished_link'),
+				   ),
+				 )
+				);	 			
+				$au_link_text = t("You can use !link to view this unpublished node.", array('!link' => $au_link));
+				drupal_set_message($au_link_text, 'status', FALSE);   
+				 
+			}
+		}
+	}	
+}
+
+
+/**
  * Implements hook_node_view().
  */
 function access_unpublished_node_view($node) {

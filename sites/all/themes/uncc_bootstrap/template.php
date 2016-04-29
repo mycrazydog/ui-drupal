@@ -15,6 +15,9 @@
 	$variables['subbrand_link'] = theme_get_setting('subbrand_link');
  }
 
+
+
+
 /**
  * Implements hook_preprocess_html()
  *
@@ -37,6 +40,21 @@ function uncc_bootstrap_preprocess_html(&$variables) {
 	drupal_add_css('//fonts.googleapis.com/css?family=PT+Serif:400,400italic,700,700italic', array('type' => 'external'));
 	
 	drupal_add_css('//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css', array('type' => 'external'));
+	
+	
+		/* Add apple default icon */
+		$apple_icon =  array(	
+			'#tag' => 'link',
+			'#attributes' => array(
+			  'href' => '/'.path_to_theme() .'/icon/apple-touch-icon.png',
+			  'rel' => 'apple-touch-icon',
+			),
+		);
+		drupal_add_html_head($apple_icon, 'apple-touch-icon');
+	
+
+	
+	
 	
 }
 

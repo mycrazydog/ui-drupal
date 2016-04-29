@@ -875,6 +875,10 @@ div.caption{
     margin: 17px 0px;
 }
 
+.story-body .align-center figure.image-captioned{
+	margin: auto;
+}
+
 .story-body table, .story-body table td{
 	border: none !important;
 	border-collapse: collapse !important;
