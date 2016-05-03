@@ -812,6 +812,20 @@ height: 25px !important;
 	text-align: right;
 }
 
+@media (min-width: 768px) {
+	.pull-right-lg{
+		float: right !important;	
+	}
+}
+
+@media (max-width: 768px) {
+	ul.article-social{
+		margin: 15px 0 0 0;
+	}
+}
+
+
+
 .story-description, .story-description p {
     font-size: 1.9rem;
     font-style: italic;

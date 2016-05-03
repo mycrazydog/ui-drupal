@@ -42,6 +42,15 @@ function uncc_bootstrap_preprocess_html(&$variables) {
 	drupal_add_css('//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css', array('type' => 'external'));
 	
 	
+	//For Sharethis - note will error (stLight not defined) is browser configured to block files
+	$st1  = "var switchTo5x=false;";
+	drupal_add_js($st1, array('type' => 'inline', 'scope' => 'header'));
+	drupal_add_js("//w.sharethis.com/button/buttons.js", array('type' => 'external'));	
+	$st2  = "stLight.options({publisher: 'e89610c6-70bd-44e3-9386-a61ae4b5687', doNotHash: false, doNotCopy: false, hashAddressBar: false});";
+	drupal_add_js($st2, array('type' => 'inline', 'scope' => 'header'));
+	
+	
+	
 		/* Add apple default icon */
 		$apple_icon =  array(	
 			'#tag' => 'link',
